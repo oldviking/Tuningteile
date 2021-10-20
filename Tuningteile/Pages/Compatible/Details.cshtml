@@ -1,0 +1,31 @@
+﻿@page
+@model Tuningteile.Pages.Compatible.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>compatibility</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <label class="control-label">Model</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.compatibility.Model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Tuning Teil</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.compatibility.TuningPart.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-TuningPartId="@Model.compatibility.TuningPartId" asp-route-ModelId="@Model.compatibility.ModelID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

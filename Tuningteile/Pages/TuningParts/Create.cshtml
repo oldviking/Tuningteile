@@ -1,0 +1,53 @@
+﻿@page
+@model Tuningteile.Pages.TuningParts.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Tuning Teil Hinzufügen</h1>
+
+<h4>TuningPart</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label  class="control-label">Hersteller</label>
+                <input asp-for="TuningPart.ManufacturerName" class="form-control" />
+                <span asp-validation-for="TuningPart.ManufacturerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Name</label>
+                <input asp-for="TuningPart.PartName" class="form-control" />
+                <span asp-validation-for="TuningPart.PartName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Preis</label>
+                <input asp-for="TuningPart.Price" class="form-control" />
+                <span asp-validation-for="TuningPart.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TuningPart.available" /> Verfügbar
+                </label>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Kategorie</label>
+                <select asp-for="TuningPart.CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Hinzufügen" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Zurück zur Liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

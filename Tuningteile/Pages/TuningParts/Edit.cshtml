@@ -1,0 +1,50 @@
+﻿@page
+@model Tuningteile.Pages.TuningParts.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Tuning Teil Bearbeiten</h1>
+
+<h4>TuningPart</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TuningPart.Id" />
+            <div class="form-group">
+                <label asp-for="TuningPart.ManufacturerName" class="control-label"></label>
+                <input asp-for="TuningPart.ManufacturerName" class="form-control" />
+                <span asp-validation-for="TuningPart.ManufacturerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TuningPart.PartName" class="control-label"></label>
+                <input asp-for="TuningPart.PartName" class="form-control" />
+                <span asp-validation-for="TuningPart.PartName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TuningPart.Price" class="control-label"></label>
+                <input asp-for="TuningPart.Price" class="form-control" />
+                <span asp-validation-for="TuningPart.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TuningPart.available" /> @Html.DisplayNameFor(model => model.TuningPart.available)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

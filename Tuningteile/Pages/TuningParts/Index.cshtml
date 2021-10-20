@@ -1,0 +1,54 @@
+﻿@page
+@model Tuningteile.Pages.TuningParts.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Übersicht Tuning Teile</h1>
+
+<p>
+    <a asp-page="Create">Neues Teil Erstellen</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>Hersteller</label>
+            </th>
+            <th>
+                <label>Namen</label>
+            </th>
+            <th>
+                <label>Preis</label>
+            </th>
+            <th>
+                <label>Verfügbar</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TuningPart) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufacturerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.available)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

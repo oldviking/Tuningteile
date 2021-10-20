@@ -1,0 +1,16 @@
+﻿@page
+@model Tuningteile.Pages.Auth.wrong_credModel
+@{
+}
+
+<h1>Falsche Zugangsdaten</h1>
+
+@*Wordaround to redirect to the login page if the credantials are wrong*@
+<script>
+    setTimeout(function () {
+        window.location.href = './Login';
+    }, 2000);
+</script>
+<h2>Sie werden in 2 Sekunden umgeleitet.</h2>
+
+

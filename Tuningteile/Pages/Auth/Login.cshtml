@@ -1,0 +1,25 @@
+﻿@page
+@model Tuningteile.Pages.Auth.LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<div>
+    <form method="post">
+
+        <div>
+            <label class="control-label">Username</label>
+            <input asp-for="username" class="form-control" />
+        </div>
+        <br />
+        <div>
+            <label class="control-label">Password</label>
+            <input asp-for="password" class="form-control" type="password" />
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </form>
+</div>

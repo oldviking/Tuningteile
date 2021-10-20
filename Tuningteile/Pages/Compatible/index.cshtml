@@ -1,0 +1,42 @@
+﻿@page
+@model Tuningteile.Pages.Compatible.indexModel
+
+@{
+    ViewData["Title"] = "index";
+}
+
+<h1>index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.compatibility[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.compatibility[0].TuningPart)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.compatibility) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TuningPart.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-TuningPartId="@item.TuningPartId" asp-route-ModelId="@item.ModelID">Edit</a> |
+                <a asp-page="./Details" asp-route-TuningPartId="@item.TuningPartId" asp-route-ModelId="@item.ModelID">Details</a> |
+                <a asp-page="./Delete" asp-route-TuningPartId="@item.TuningPartId" asp-route-ModelId="@item.ModelID">Delete</a>d })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

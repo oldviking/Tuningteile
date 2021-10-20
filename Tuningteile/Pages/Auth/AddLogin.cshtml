@@ -1,0 +1,49 @@
+﻿@page
+@model Tuningteile.Pages.Auth.AddLoginModel
+
+@{
+    ViewData["Title"] = "AddLogin";
+}
+
+<h1>AddLogin</h1>
+
+<h4>user</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="user.Firstname" class="control-label"></label>
+                <input asp-for="user.Firstname" class="form-control" />
+                <span asp-validation-for="user.Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="user.Lastname" class="control-label"></label>
+                <input asp-for="user.Lastname" class="form-control" />
+                <span asp-validation-for="user.Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="user.Username" class="control-label"></label>
+                <input asp-for="user.Username" class="form-control" />
+                <span asp-validation-for="user.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="user.Password" class="control-label"></label>
+                <input asp-for="user.Password" class="form-control" type="password"/>
+                <span asp-validation-for="user.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
